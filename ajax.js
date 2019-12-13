@@ -35,7 +35,8 @@ class Ajax{
                     case "header" : this.header = options[item]; break;
                     case "responseType" : this.responseType = options[item]; break; 
                     case "credentials": this.credentials = options[item]; break; 
-                    default: this.consoleLog("Option inconnue :","INIT",item,"warning"); break;
+                    default: //this.consoleLog("Option inconnue :","INIT",item,"warning"); 
+                    break;
                 }
             }
         }
@@ -52,14 +53,14 @@ class Ajax{
     * @param {any} data Données a afficher
     * @param {string} type Type d'affichage [log,warning,error]
     */
-    consoleLog(msg, title="INFO", data="", type="log") {
-        switch (type) {
-            case "warning": console.warn("[AJAX] [" + title + "] " + msg, data); break;
-            case "error": console.error("[AJAX] [" + title + "] " + msg, data); break;
-            default: console.log("[AJAX] [" + title + "] " + msg, data); break;
-        }
-        return;
-    }
+    // consoleLog(msg, title="INFO", data="", type="log") {
+    //     switch (type) {
+    //         case "warning": console.warn("[AJAX] [" + title + "] " + msg, data); break;
+    //         case "error": console.error("[AJAX] [" + title + "] " + msg, data); break;
+    //         default: console.log("[AJAX] [" + title + "] " + msg, data); break;
+    //     }
+    //     return;
+    // }
     
     /**
     * Initialisation de l'objet xhr qui permettra de faire des requêtes http
@@ -70,9 +71,9 @@ class Ajax{
         if (window.XMLHttpRequest || window.ActiveXObject) {
             if (window.ActiveXObject) {
                 try {
-                    xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                    xhr = new ActiveXObject("Msxml2.XMLHTTP"); /** global: ActiveXObject */
                 } catch (e) {
-                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP"); /** global: ActiveXObject */
                 }
             } else {
                 xhr = new XMLHttpRequest();
@@ -89,7 +90,7 @@ class Ajax{
     */
     isValid(){
         if (this.url === null || this.url === "") {
-            this.consoleLog("Url missing", "TEST", this.url, "error"); 
+            // this.consoleLog("Url missing", "TEST", this.url, "error"); 
             return false;
         }
         return true;
@@ -98,7 +99,6 @@ class Ajax{
     /**
     * Exécution de la requête HTTP
     * @param {XMLHttpRequest} xhr Objet XMLHttpRequest
-    * @global ActiveXObject
     */
     run(xhr) {
         
@@ -116,7 +116,7 @@ class Ajax{
             xhr.loadend = (this.loadend !== null) ? this.loadend() : null;
             
             xhr.error = function () {
-                this.consoleLog("Error : ","ERROR",xhr);
+                // this.consoleLog("Error : ","ERROR",xhr);
             };
             
             xhr.onreadystatechange = function () {
