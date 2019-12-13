@@ -1,7 +1,8 @@
 # Objet AJAX JS
 
 Par Maximilien COSTA
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/MCYnov/Ajax?include_prereleases&style=for-the-badge) ![GitHub All Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/total?style=for-the-badge)![GitHub Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/latest/total?style=for-the-badge)
+
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/MCYnov/Ajax?include_prereleases&style=flat-square) ![Scrutinizer code quality (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/quality/g/MCYnov/Ajax?style=flat-square) ![GitHub All Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/total?style=flat-square) ![GitHub](https://img.shields.io/github/license/MCYnov/Ajax?style=flat-square)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
@@ -40,5 +41,3 @@ loadstart | Fonction | Fonction exécuté au lancement de la réquête
 loadend | Fonction | Fonction exécuté à la fin de la requête
 responseType | String | Format de la réponse de la requête
 credentials | Boolean | `default : true` Indique si des requêtes Access-Control d'origines différentes peuvent être effectuées avec des informations d'authentification telles que des cookies ou des en-têtes d'autorisation
-
-
