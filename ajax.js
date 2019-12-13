@@ -71,8 +71,10 @@ class Ajax{
         if (window.XMLHttpRequest || window.ActiveXObject) {
             if (window.ActiveXObject) {
                 try {
+                    /** global: ActiveXObject */
                     xhr = new ActiveXObject("Msxml2.XMLHTTP"); /** global: ActiveXObject */
                 } catch (e) {
+                    /** global: ActiveXObject */
                     xhr = new ActiveXObject("Microsoft.XMLHTTP"); /** global: ActiveXObject */
                 }
             } else {
