@@ -68,18 +68,8 @@ class Ajax{
     */
     getXMLHttpRequest(credentials=true) {
         var xhr;
-        if (window.XMLHttpRequest || window.ActiveXObject) {
-            if (window.ActiveXObject) {
-                try {
-                    /** global: ActiveXObject */
-                    xhr = new ActiveXObject("Msxml2.XMLHTTP"); /** global: ActiveXObject */
-                } catch (e) {
-                    /** global: ActiveXObject */
-                    xhr = new ActiveXObject("Microsoft.XMLHTTP"); /** global: ActiveXObject */
-                }
-            } else {
-                xhr = new XMLHttpRequest();
-            }
+        if (window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
             xhr.withCredentials = credentials;
         } else {
             return null;
@@ -104,7 +94,7 @@ class Ajax{
     */
     run(xhr) {
         
-        if (this.isValid()) {
+        if (this.isValid() && xhr !== null) {
             
             xhr.open(this.methode, this.url);
             
