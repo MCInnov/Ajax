@@ -130,7 +130,7 @@ class Ajax{
                         (this.success !== null) ? this.success(res, xhr.status, xhr) : null;
                     }
                     else {
-                        if (this.responseType != null) {
+                        if (this.responseType !== null) {
                             res = (this.responseType == "json") ? JSON.parse(xhr.response) : xhr.response;
                         }
                         (this.error !== null) ? this.error(res, xhr.status, xhr) : null; 
