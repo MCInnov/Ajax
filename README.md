@@ -1,8 +1,7 @@
 # Objet AJAX JS
 
 Par Maximilien COSTA
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/MCYnov/Ajax?include_prereleases) ![GitHub All Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/total)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/MCYnov/Ajax?include_prereleases&style=for-the-badge) ![GitHub All Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/total?style=for-the-badge)![GitHub Releases](https://img.shields.io/github/downloads/MCYnov/Ajax/latest/total?style=for-the-badge)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
