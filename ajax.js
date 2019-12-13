@@ -1,27 +1,11 @@
 /*
-Développer par Maximilien COSTA
-21/11/2019
-v5.1
+By Maximilien COSTA
+13/12/2019
+v5.2
 */
 
 /*########################### Fichier de l'objet Ajax ###########################*/
 
-/*
-Exemple : 
-
-var requete = new Ajax({
-    url:String,
-    data:Json/Array/String/etc,
-    type:String,
-    header:Array,
-    success:function(result, status, xhr),
-    error:function(result, status, xhr),
-    loadstart:function,
-    loadend:function,
-    responseType:[json,text,...],
-    credentials:boolean    
-});
-*/
 
 class Ajax{
     
@@ -123,14 +107,14 @@ class Ajax{
             
             xhr.open(this.methode, this.url);
             
-            if (this.header.length != 0) {
+            if (this.header.length !== 0) {
                 this.header.forEach(function (value) {
                     xhr.setRequestHeader(value[0], value[1]);
                 });
             }
             
-            xhr.loadstart = (this.loadstart != null) ? this.loadstart() : null;
-            xhr.loadend = (this.loadend != null) ? this.loadend() : null;
+            xhr.loadstart = (this.loadstart !== null) ? this.loadstart() : null;
+            xhr.loadend = (this.loadend !== null) ? this.loadend() : null;
             
             xhr.error = function () {
                 this.consoleLog("Error : ","ERROR",xhr);
@@ -138,24 +122,24 @@ class Ajax{
             
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == XMLHttpRequest.DONE) {
+                    var res = xhr.response;
                     if (xhr.status == 200) {
-                        var res = xhr.response;
                         if (this.responseType != null) {
                             res = (this.responseType == "json") ? JSON.parse(xhr.response) : xhr.response;
                         }
-                        (this.success != null) ? this.success(res, xhr.status, xhr) : null;
+                        (this.success !== null) ? this.success(res, xhr.status, xhr) : null;
                     }
                     else {
-                        var res = xhr.response;
                         if (this.responseType != null) {
-                            res = (requet.responseType == "json") ? JSON.parse(xhr.response) : xhr.response;
+                            res = (this.responseType == "json") ? JSON.parse(xhr.response) : xhr.response;
                         }
-                        (this.error != null) ? this.error(res, xhr.status, xhr) : null; // Affiche dans la console si il y a une erreur dans le cas où xhr.status est différent de 200
+                        (this.error !== null) ? this.error(res, xhr.status, xhr) : null; 
+                        // Affiche dans la console si il y a une erreur dans le cas où xhr.status est différent de 200
                     }
                 }
             }
             
-            xhr.send((this.data != null) ? this.data : ""); //Send to serve
+            xhr.send((this.data !== null) ? this.data : ""); //Send to serve
         }
     }
 }

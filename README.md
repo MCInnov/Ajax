@@ -14,16 +14,26 @@ Objet qui permet d'exécuter des requêtes HTTP de manière asynchrone en Javasc
 
 ```javascript
 var requete = new Ajax({
-	url:String,
-	data:[Json,Array,String,etc],
-	methode:String,
-	header:Array,
-	success:function(result, status, xhr){},
-	error:function(result, status, xhr){},
-	loadstart:function(){},
-	loadend:function(){},
-	responseType:[Json,text,...],
-	credentials:Boolean,
+	url:"http://localhost/",
+	data:"data",
+	methode:"GET",
+	header:[
+		["Content-Type", "application/json"]
+	],
+	success:function(result, status, xhr){
+		console.log(result);
+	},
+	error:function(result, status, xhr){
+		console.log(result);
+	},
+	loadstart:function(){
+		console.log("Start");
+	},
+	loadend:function(){
+		console.log("End)
+	},
+	responseType:"json",
+	credentials:true,
 });
 ```
 
