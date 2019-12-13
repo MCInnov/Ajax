@@ -66,7 +66,7 @@ class Ajax{
     * @param {boolean} credentials Indique si des requêtes Access-Control d'origines différentes peuvent être effectuées avec des informations d'authentification telles que des cookies ou des en-têtes d'autorisation
     */
     getXMLHttpRequest(credentials=true) {
-        var xhr = null;
+        var xhr;
         if (window.XMLHttpRequest || window.ActiveXObject) {
             if (window.ActiveXObject) {
                 try {
@@ -79,7 +79,6 @@ class Ajax{
             }
             xhr.withCredentials = credentials;
         } else {
-            alert("Ton navigateur ne supporte pas l'objet AJAX");
             return null;
         }
         return xhr;
@@ -89,17 +88,17 @@ class Ajax{
     * Vérification de l'url
     */
     isValid(){
-        if (this.url == null || this.url == "") {
+        if (this.url === null || this.url === "") {
             this.consoleLog("Url missing", "TEST", this.url, "error"); 
             return false;
-        }else{
-            return true;
         }
+        return true;
     }
     
     /**
     * Exécution de la requête HTTP
     * @param {XMLHttpRequest} xhr Objet XMLHttpRequest
+    * @global ActiveXObject
     */
     run(xhr) {
         
