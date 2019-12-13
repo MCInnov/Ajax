@@ -124,7 +124,7 @@ class Ajax{
                 if (xhr.readyState == XMLHttpRequest.DONE) {
                     var res = xhr.response;
                     if (xhr.status == 200) {
-                        if (this.responseType != null) {
+                        if (this.responseType !== null) {
                             res = (this.responseType == "json") ? JSON.parse(xhr.response) : xhr.response;
                         }
                         (this.success !== null) ? this.success(res, xhr.status, xhr) : null;
